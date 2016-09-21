@@ -44,6 +44,7 @@ function nn.Concat:__tostring__()
    local tab = '  '
    local line = '\n'
    local next = r '  |`-> '
+   local lastNext = r '   `-> '
    local ext = r '  |    '
    local extlast = '       '
    local last = r '   ... -> '
@@ -51,7 +52,7 @@ function nn.Concat:__tostring__()
    str = str .. r ' {' .. line .. tab .. r 'input'
    for i=1,#self.modules do
       if i == #self.modules then
-         str = str .. line .. tab .. next .. r '(' .. i .. r '): ' .. tostring(self.modules[i]):gsub(line, line .. tab .. extlast)
+         str = str .. line .. tab .. lastNext .. r '(' .. i .. r '): ' .. tostring(self.modules[i]):gsub(line, line .. tab .. extlast)
       else
          str = str .. line .. tab .. next .. r '(' .. i .. r '): ' .. tostring(self.modules[i]):gsub(line, line .. tab .. ext)
       end
