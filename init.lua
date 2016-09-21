@@ -32,6 +32,10 @@ function nn.Sequential:__tostring__()
    return str
 end
 
+--------------------------------------------------------------------------------
+-- Concat
+--------------------------------------------------------------------------------
+
 function nn.Concat:__tostring__()
    local r = function(s) -- RED
       if nn.config.prettyPrint then return '\27[0;31m' .. s .. '\27[0m' end
@@ -56,6 +60,8 @@ function nn.Concat:__tostring__()
    str = str .. line .. r '}'
    return str
 end
+
+nn.ConcatTable = nn.Concat:__tostring__
 
 function nn.Parallel:__tostring__()
    local g = function(s) -- GREEN
