@@ -1,0 +1,11 @@
+commands = {}
+modules = {}
+repository = {
+   ['pretty-print'] = {
+      ['scm-1'] = {
+         {
+            arch = "rockspec"
+         }
+      }
+   }
+}
