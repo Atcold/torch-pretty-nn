@@ -64,6 +64,10 @@ end
 
 nn.ConcatTable.__tostring__ = nn.Concat.__tostring__
 
+--------------------------------------------------------------------------------
+-- Parallel
+--------------------------------------------------------------------------------
+
 function nn.Parallel:__tostring__()
    local g = function(s) -- GREEN
       if nn.config.prettyPrint then return '\27[0;32m' .. s .. '\27[0m' end
@@ -72,6 +76,7 @@ function nn.Parallel:__tostring__()
    local tab = '  '
    local line = '\n'
    local next = g '  |`-> '
+   local lastNext = g '   `-> '
    local ext = g '  |    '
    local extlast = '       '
    local last = g '   ... -> '
@@ -79,7 +84,7 @@ function nn.Parallel:__tostring__()
    str = str .. g ' {' .. line .. tab .. g 'input'
    for i=1,#self.modules do
       if i == #self.modules then
-         str = str .. line .. tab .. next .. g '(' .. i .. g '): ' .. tostring(self.modules[i]):gsub(line, line .. tab .. extlast)
+         str = str .. line .. tab .. lastNext .. g '(' .. i .. g '): ' .. tostring(self.modules[i]):gsub(line, line .. tab .. extlast)
       else
          str = str .. line .. tab .. next .. g '(' .. i .. g '): ' .. tostring(self.modules[i]):gsub(line, line .. tab .. ext)
       end
@@ -88,3 +93,5 @@ function nn.Parallel:__tostring__()
    str = str .. line .. g '}'
    return str
 end
+
+nn.ParallelTable.__tostring__ = nn.Parallel.__tostring__
