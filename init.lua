@@ -61,7 +61,7 @@ function nn.Concat:__tostring__()
    return str
 end
 
-nn.ConcatTable = nn.Concat:__tostring__
+nn.ConcatTable.__tostring__ = nn.Concat.__tostring__
 
 function nn.Parallel:__tostring__()
    local g = function(s) -- GREEN
