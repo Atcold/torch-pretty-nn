@@ -27,11 +27,6 @@ block:add(nn.View(-1))
 block:add(nn.Linear(12, 4))
 block:add(nn.View(2, 2))
 split:add(block)
-
-print(split)
-nn.config.prettyPrint = false
-print(split)
-pred = split:forward(torch.randn(3, 4))
 ```
 
 If we print it on screen with `print(split)` we get something like this
