@@ -2,6 +2,14 @@
 
 `pretty-nn` package brings some colour to the boring `nn` package of Torch.
 
+## Installation
+
+```
+luarocks install pretty-nn
+```
+
+## Usage
+
 Say we have the following model
 
 ```lua
