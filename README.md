@@ -35,7 +35,7 @@ If we print it on screen with `print(split)` we get something like this
 
 If we `require 'pretty-nn'` and `print(split)` again, we'll get this
 
-![Cool](img/cool.png)
+![Cool](img/cool1.png)
 
 You can toggle the prettiness with `yourModelName:prettyPrint()`.
 Alternative, you can *enable / disable* it by `yourModelName:prettyPrint(true / false)`.
